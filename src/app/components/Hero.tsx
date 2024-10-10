@@ -151,7 +151,7 @@ export default function Home() {
           >
             <circle
               id="holder"
-              className="fill-none stroke-2 stroke-current"
+              className="fill-none"
               cx="151"
               cy="151"
               r="150"
