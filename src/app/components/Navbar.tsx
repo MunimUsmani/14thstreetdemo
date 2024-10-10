@@ -18,7 +18,7 @@ export default function Navbar() {
       <nav className="absolute top-[3%] w-full bg-white py-2 px-4 sm:px-6 lg:px-16 z-20 hidden lg:block">
         <div className="flex justify-between items-center">
           <Image
-            src="/Assets/logo.png"
+            src="/Assets/footer-logo.png"
             alt="14th Street Pizza"
             width={100}
             height={72}
@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Menu className="text-3xl text-black" onClick={toggleSidebar} />
           <Image
-            src="/Assets/logo.png"
+            src="/Assets/footer-logo.png"
             alt="14th Street Pizza"
             width={80}
             height={60}
@@ -81,7 +81,7 @@ export default function Navbar() {
         >
           <div className="flex justify-between items-center p-4 border-b border-gray-200">
             <Image
-              src="/Assets/logo.png"
+              src="/Assets/footer-logo.png"
               alt="14th Street Pizza"
               width={80}
               height={60}

@@ -11,7 +11,7 @@ export default function HeroContact() {
           objectFit="cover"
           className="absolute bottom-0 left-0 right-0"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center font-[Barlow]">
           <h1 className="text-5xl sm:text-5xl md:text-5xl lg:text-5xl font-bold text-white text-center mt-14">
             ABOUT US
           </h1>

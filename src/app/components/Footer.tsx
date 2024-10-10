@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-wrap justify-center md:justify-between -mx-4">
           <div className="w-full md:w-1/2 lg:w-1/5 px-4 mb-8 text-center md:text-left">
             <Image
-              src="/Assets/logo.png"
+              src="/Assets/footer-logo.png"
               alt="14th Street Pizza Logo"
               width={200}
               height={100}
