@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+/* eslint-disable */
 
 gsap.registerPlugin(MotionPathPlugin);
 
