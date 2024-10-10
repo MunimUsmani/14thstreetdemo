@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link href="/" className="text-lg hover:text-[#BB1112]">
               HOME
             </Link>
-            <Link href="/About us" className="text-lg hover:text-[#BB1112]">
+            <Link href="/AboutUs" className="text-lg hover:text-[#BB1112]">
               ABOUT US
             </Link>
             <Link href="/Rewards" className="text-lg hover:text-[#BB1112]">
@@ -102,7 +102,7 @@ export default function Navbar() {
               HOME
             </Link>
             <Link
-              href="/About us"
+              href="/AboutUs"
               className="block px-4 py-2 text-lg hover:bg-gray-100 hover:text-[#BB1112]"
             >
               ABOUT US
