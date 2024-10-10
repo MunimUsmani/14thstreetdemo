@@ -146,11 +146,11 @@ export default function Home() {
           ))}
           <svg
             viewBox="0 0 300 300"
-            className="h-[1600px] w-[1600px] overflow-visible z-[-1] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+            className="h-[1600px] w-[1600px] overflow-visible z-[-1] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 2xl:w-[2600px] 2xl:h-[1350px] "
           >
             <circle
               id="holder"
-              className="fill-none"
+              className="fill-none stroke-2 stroke-current"
               cx="151"
               cy="151"
               r="150"
