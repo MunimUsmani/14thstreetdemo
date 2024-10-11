@@ -21,7 +21,7 @@ export default function PizzaStorefront() {
       <div className="w-1/2 pl-8 relative">
         {/* Updated positioning for "11" */}
         <span className="absolute top-[15%] left-0 transform -translate-y-1/2 text-[250px] font-bold text-black z-10 mt-16 font-[Barlow]">
-          11
+          15
         </span>
         <div className="h-full flex items-center font-[Barlow] font-semibold">
           <p className="text-lg pl-30 mt-48 m-6">
