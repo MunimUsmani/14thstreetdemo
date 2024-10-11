@@ -20,7 +20,7 @@ export default function PizzaStorefront2012() {
 
       <div className="w-1/2 relative">
         <Image
-          src="/Assets/11.jpg"
+          src="/Assets/12.jpg"
           alt="14th Street Pizza Storefront"
           layout="fill"
           objectFit="cover"

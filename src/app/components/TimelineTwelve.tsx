@@ -6,7 +6,7 @@ export default function PizzaStorefront() {
     <div className="relative h-[510px] font-[Barlow] overflow-hidden flex">
       <div className="w-1/2 relative">
         <Image
-          src="/Assets/11.jpg"
+          src="/Assets/23.jpg"
           alt="14th Street Pizza Storefront"
           layout="fill"
           objectFit="cover"
