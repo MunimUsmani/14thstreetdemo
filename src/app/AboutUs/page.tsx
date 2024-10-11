@@ -1,5 +1,6 @@
 import NavBar from "@/app/components/Navbar";
 import HeroAbout from "../components/HeroAbout";
+import AboutSection from "@/app/components/AboutSection";
 import Footer from "@/app/components/Footer";
 
 const Home: React.FC = () => {
@@ -8,6 +9,7 @@ const Home: React.FC = () => {
       <div>
         <NavBar />
         <HeroAbout />
+        <AboutSection />
         <Footer />
       </div>
     </>
