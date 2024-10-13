@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function NewsletterSubscription() {
   return (
-    <div className="bg-red-700 py-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="bg-red-700 py-8 px-4 sm:px-6 lg:px-8 overflow-hidden font-[Barlow]">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between">
         <div className="w-full lg:w-2/5 mb-6 lg:mb-0 lg:ml-20 flex justify-center lg:justify-start">
           <Image

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ContactForm() {
   return (
-    <div className="bg-[#FFF8EE] flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+    <div className="bg-[#FFF8EE] flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8 font-[Barlow]">
       <div className="max-w-3xl w-full space-y-8">
         <div className="text-center">
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
