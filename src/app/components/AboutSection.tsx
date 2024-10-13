@@ -16,7 +16,7 @@ export default function Component() {
           come a long way. It was launched on 14th February 2011 and has
           established a strong identity in the pizza delivery business in
           Pakistan in only a year - so much so, that it was hard to keep up with
-          the thriving demand when it was launched. That's when the real test
+          the thriving demand when it was launched. That is when the real test
           began, but we faced the challenge with gusto and were soon back on the
           table with a bigger team and a bigger kitchen. The introducer of the
           20 inch pizza in Pakistan, 14th Street Pizza Co. has grown from being
