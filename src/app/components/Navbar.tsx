@@ -31,8 +31,8 @@ export default function Navbar() {
             <Link href="/AboutUs" className="text-lg hover:text-[#BB1112]">
               ABOUT US
             </Link>
-            <Link href="/Rewards" className="text-lg hover:text-[#BB1112]">
-              REWARDS
+            <Link href="/Location" className="text-lg hover:text-[#BB1112]">
+              LOCATION
             </Link>
             <Link href="/Contact" className="text-lg hover:text-[#BB1112]">
               CONTACT US
@@ -108,10 +108,10 @@ export default function Navbar() {
               ABOUT US
             </Link>
             <Link
-              href="/Rewards"
+              href="/Location"
               className="block px-4 py-2 text-lg hover:bg-gray-100 hover:text-[#BB1112]"
             >
-              REWARDS
+              LOCATION
             </Link>
             <Link
               href="/Contact"
