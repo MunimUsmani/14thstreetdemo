@@ -36,16 +36,17 @@ const ProductDescription = () => {
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
+        <h2 className="text-3xl font-bold mb-6 text-black text-center">
           RELATED PRODUCTS
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="flex gap-4 mt-20">
           {relatedProducts.map((product, index) => (
             <div
               key={index}
               className={`group relative ${
                 index === 3 ? "hidden xl:block" : ""
               }`}
+              style={{ height: "250px", width: "280px" }}
             >
               <div className="absolute inset-x-0 bottom-0 bg-white rounded-lg shadow-md transition-all duration-500 ease-in-out group-hover:h-[calc(100%+3rem)] group-hover:-top-16" />
               <div className="relative bg-white p-4 sm:p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out">
@@ -54,7 +55,7 @@ const ProductDescription = () => {
                     src={product.image}
                     alt={product.name}
                     width={150}
-                    height={100}
+                    height={150}
                     className="rounded-t-lg"
                   />
                 </div>

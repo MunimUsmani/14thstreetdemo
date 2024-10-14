@@ -1,6 +1,6 @@
 import NavBar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import HeroContact from "../components/HeroAbout";
+import HeroContact from "../components/HeroContact";
 import ContactForm from "../components/ContactForm";
 import NewsletterSubscription from "../components/Newsletter";
 
