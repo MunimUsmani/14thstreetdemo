@@ -79,7 +79,7 @@ export default function Component() {
                       value={crust}
                       checked={selectedOptions.crust === crust}
                       onChange={() => handleOptionChange("crust", crust)}
-                      className="mr-2 w-4 h-4 border-2 border-gray-300 checked:border-none checked:bg-[#e64343] focus:ring-0"
+                      className="mr-2 w-4 h-4 border-2 border-gray-300 checked:border-none checked:bg-[#32b04a] focus:ring-0"
                     />
                     <span className="text-sm">{crust}</span>
                   </label>
