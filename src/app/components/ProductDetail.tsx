@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Heart, ShoppingBasket, Minus, Plus } from "lucide-react";
-
 interface SelectedOptions {
   crust: string;
   size: string;
@@ -30,13 +29,15 @@ export default function Component() {
     cheese: false,
   });
 
+  // Handle option changes for radio buttons (pizza crust, size, sideline, drink)
   const handleOptionChange = (
-    category: keyof SelectedOptions,
+    category: keyof SelectedOptions, // category must be a key of SelectedOptions
     value: string
   ) => {
     setSelectedOptions((prev) => ({ ...prev, [category]: value }));
   };
 
+  // Handle topping changes for checkboxes (extra toppings)
   const handleToppingChange = (topping: keyof ExtraToppings) => {
     setExtraToppings((prev) => ({ ...prev, [topping]: !prev[topping] }));
   };
@@ -78,7 +79,7 @@ export default function Component() {
                       value={crust}
                       checked={selectedOptions.crust === crust}
                       onChange={() => handleOptionChange("crust", crust)}
-                      className="mr-2 w-4 h-4 border-2 border-gray-300 checked:border-none checked:bg-[#32b04a] focus:ring-0"
+                      className="mr-2 w-4 h-4 border-2 border-gray-300 checked:border-none checked:bg-[#e64343] focus:ring-0"
                     />
                     <span className="text-sm">{crust}</span>
                   </label>
@@ -158,9 +159,15 @@ export default function Component() {
               <label key={topping.name} className="flex items-center">
                 <input
                   type="checkbox"
-                  checked={extraToppings[topping.name.toLowerCase()]}
+                  checked={
+                    extraToppings[
+                      topping.name.toLowerCase() as keyof ExtraToppings
+                    ]
+                  }
                   onChange={() =>
-                    handleToppingChange(topping.name.toLowerCase())
+                    handleToppingChange(
+                      topping.name.toLowerCase() as keyof ExtraToppings
+                    )
                   }
                   className="mr-2 w-4 h-4 border-2 border-gray-300 rounded checked:bg-[#32b04a] checked:text-white checked:ring-2 checked:ring-white focus:ring-0"
                 />
