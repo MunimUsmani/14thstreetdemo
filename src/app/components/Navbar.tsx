@@ -37,9 +37,6 @@ export default function Navbar() {
             <Link href="/Contact" className="text-lg hover:text-[#BB1112]">
               CONTACT US
             </Link>
-            <Link href="/Detail" className="text-lg hover:text-[#BB1112]">
-              DETAIL
-            </Link>
           </div>
           <div className="flex items-center space-x-4">
             <Link href="/Cart">
@@ -126,13 +123,6 @@ export default function Navbar() {
             >
               CONTACT US
             </Link>
-            <Link
-              href="/Detail"
-              className="block px-4 py-2 text-lg hover:bg-gray-100 hover:text-[#BB1112]"
-            >
-              DETAIL
-            </Link>
-
             <button className="mt-4 w-[50%] bg-[#BB1112] text-white font-bold py-2 px-2 rounded ml-2">
               SIGNUP
             </button>
