@@ -1,4 +1,4 @@
-// @ts-ignore
+// "@ts-expect-error"
 "use client";
 import Image from "next/image";
 import { useState } from "react";
