@@ -40,14 +40,13 @@ export default function Navbar() {
             <Link href="/Detail" className="text-lg hover:text-[#BB1112]">
               DETAIL
             </Link>
-            <Link href="/Cart" className="text-lg hover:text-[#BB1112]">
-              CART
-            </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="w-9 h-9 bg-[#176D08] rounded flex items-center justify-center">
-              <ShoppingBasket className="text-white" size={24} />
-            </div>
+            <Link href="/Cart">
+              <div className="w-9 h-9 bg-[#176D08] rounded flex items-center justify-center">
+                <ShoppingBasket className="text-white" size={24} />
+              </div>
+            </Link>
             <button className="bg-[#BB1112] text-white font-semibold py-2 px-4 rounded font-[Barlow]">
               SIGNUP
             </button>
@@ -66,9 +65,11 @@ export default function Navbar() {
             height={60}
             className="object-contain"
           />
-          <div className="w-9 h-9 bg-[#176D08] rounded flex items-center justify-center">
-            <ShoppingBasket className="text-white" size={24} />
-          </div>
+          <Link href="/Cart">
+            <div className="w-9 h-9 bg-[#176D08] rounded flex items-center justify-center">
+              <ShoppingBasket className="text-white " size={24} />
+            </div>
+          </Link>
         </div>
       </nav>
 
@@ -130,12 +131,6 @@ export default function Navbar() {
               className="block px-4 py-2 text-lg hover:bg-gray-100 hover:text-[#BB1112]"
             >
               DETAIL
-            </Link>
-            <Link
-              href="/Cart"
-              className="block px-4 py-2 text-lg hover:bg-gray-100 hover:text-[#BB1112]"
-            >
-              CART
             </Link>
 
             <button className="mt-4 w-[50%] bg-[#BB1112] text-white font-bold py-2 px-2 rounded ml-2">
