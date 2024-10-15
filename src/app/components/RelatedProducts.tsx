@@ -1,4 +1,4 @@
-// "@ts-expect-error"
+// // eslint-disable-next-line react/no-unescaped-entities
 
 import React from "react";
 import Image from "next/image";

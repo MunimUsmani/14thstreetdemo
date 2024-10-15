@@ -1,4 +1,5 @@
-// "@ts-expect-error"
+// // eslint-disable-next-line react/no-unescaped-entities
+
 "use client";
 import Image from "next/image";
 import { useState } from "react";
