@@ -1,85 +1,247 @@
 "use client";
-import React from "react";
-import Image from "next/image";
-import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-interface YearComponentProps {
-  year: number;
-  imageSrc: string;
-  text: string;
-}
+gsap.registerPlugin(ScrollTrigger);
 
-const YearComponent: React.FC<YearComponentProps> = ({
-  year,
-  imageSrc,
-  text,
-}) => {
-  const isEvenYear = year % 2 === 0;
+const timelineData = [
+  {
+    year1: 20,
+    year2: 11,
+    image: "/Assets/11.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 12,
+    image: "/Assets/12.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 13,
+    image: "/Assets/13.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 14,
+    image: "/Assets/14.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 15,
+    image: "/Assets/15.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 16,
+    image: "/Assets/16.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 17,
+    image: "/Assets/17.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 18,
+    image: "/Assets/18.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 19,
+    image: "/Assets/19.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 20,
+    image: "/Assets/20.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 21,
+    image: "/Assets/21.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 22,
+    image: "/Assets/22.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 23,
+    image: "/Assets/23.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+  {
+    year1: 20,
+    year2: 24,
+    image: "/Assets/24.jpg",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.",
+  },
+];
+
+export default function About() {
+  const sectionRefs = useRef([]);
+  const textRefs = useRef([]);
+  const imageRefs = useRef([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowWidth = window.innerWidth;
+      const scrollY = window.scrollY;
+      const aboutWrapper = document.getElementById("about-main-wrapper");
+
+      if (
+        (scrollY > 6500 && windowWidth < 1367) ||
+        (scrollY > 6900 && windowWidth < 1458) ||
+        (scrollY > 7550 && windowWidth < 1599) ||
+        (scrollY > 9250 && windowWidth < 1966)
+      ) {
+        aboutWrapper?.classList.remove("sticky");
+      } else {
+        aboutWrapper?.classList.add("sticky");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    sectionRefs.current.forEach((section, index) => {
+      const textElement = textRefs.current[index];
+      const imageElement = imageRefs.current[index];
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        })
+        .fromTo(textElement, { y: "50%" }, { y: "-50%", ease: "none" }, 0)
+        .fromTo(imageElement, { y: "-20%" }, { y: "20%", ease: "none" }, 0);
+
+      // Pin effect
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 14.5%",
+        end: "100% 50%",
+        pin: index !== timelineData.length - 1,
+        pinSpacing: false,
+      });
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  const formatYear = (year) => {
+    return <span>{year}</span>;
+  };
 
   return (
-    <div className="flex h-full w-full relative">
-      <Parallax
-        translateY={["-30px", "30px"]}
-        easing="easeOutQuad"
-        className="relative h-[510px] font-[Barlow] overflow-hidden flex w-full"
-      >
-        <div
-          className={`w-1/2 relative ${
-            isEvenYear ? "order-2" : "order-1"
-          } p-0 m-0`}
-        >
-          <Image
-            src={imageSrc}
-            alt={`${year} Pizza Storefront`}
-            layout="fill"
-            objectFit="cover"
-            className="grayscale"
-          />
-        </div>
-
-        <div
-          className={`w-1/2 relative flex items-center ${
-            isEvenYear ? "order-1" : "order-2"
-          } p-0 m-0 bg-white`}
-        >
-          <div className="h-full flex items-center font-[Barlow] font-semibold p-8">
-            <p className="text-lg mt-[6rem]">{text}</p>
-          </div>
-        </div>
-
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-[18rem]">
-          <span className="text-[200px] font-bold text-white mix-blend-difference z-10 font-[Barlow]">
-            {year}
-          </span>
-        </div>
-      </Parallax>
-    </div>
-  );
-};
-
-const YearlyParallax: React.FC = () => {
-  const years = Array.from({ length: 14 }, (_, i) => 2011 + i);
-
-  return (
-    <ParallaxProvider>
-      <div className="space-y-0 w-full">
-        {years.map((year, index) => (
+    <>
+      <section className="bg-[#fff8ee] overflow-hidden font-[Barlow]">
+        {timelineData.map((yearContent, index) => (
           <div
-            key={year}
-            className={`h-[510px] sticky top-0 flex items-center justify-center w-full ${
-              index === years.length - 1 ? "mb-12" : ""
-            }`}
+            key={index}
+            ref={(el) => (sectionRefs.current[index] = el)}
+            className={`container-fluid px-0 relative bg-[#fff8ee] ${
+              index % 2 === 0 ? "text-left" : "text-right"
+            } h-screen`} // Added h-screen for full viewport height sections
           >
-            <YearComponent
-              year={year}
-              imageSrc={`/Assets/${year.toString().slice(-2)}.jpg`}
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book."
-            />
+            <div className="absolute left-1/3 top-[5%]">
+              <h2 className="text-[15vw] font-bold">
+                <span className={index % 2 === 0 ? "text-white" : ""}>
+                  {formatYear(yearContent.year1)}
+                </span>
+                <span className={index % 2 === 0 ? "" : "text-white"}>
+                  {formatYear(yearContent.year2)}
+                </span>
+              </h2>
+            </div>
+            <div className="flex h-full">
+              {" "}
+              {/* Added h-full */}
+              {index % 2 === 0 ? (
+                <>
+                  <div className="w-1/2 px-0 overflow-hidden">
+                    {" "}
+                    {/* Added overflow-hidden */}
+                    <img
+                      ref={(el) => (imageRefs.current[index] = el)}
+                      src={yearContent.image}
+                      className="w-full h-full object-cover"
+                      alt=""
+                    />
+                  </div>
+                  <div className="w-1/2 flex items-center px-0 mx-0">
+                    {" "}
+                    {/* Changed to items-center */}
+                    <p
+                      ref={(el) => (textRefs.current[index] = el)}
+                      className="font-bold px-5 text-2xl lg:text-xl mt-[4rem]"
+                    >
+                      {yearContent.description}
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="w-1/2 flex items-center px-0 mx-0">
+                    {" "}
+                    {/* Changed to items-center */}
+                    <p
+                      ref={(el) => (textRefs.current[index] = el)}
+                      className="font-bold px-5 text-2xl lg:text-xl mt-[4rem]"
+                    >
+                      {yearContent.description}
+                    </p>
+                  </div>
+                  <div className="w-1/2 px-0 overflow-hidden">
+                    {" "}
+                    {/* Added overflow-hidden */}
+                    <img
+                      ref={(el) => (imageRefs.current[index] = el)}
+                      src={yearContent.image}
+                      className="w-full h-full object-cover"
+                      alt=""
+                    />
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         ))}
-      </div>
-    </ParallaxProvider>
+      </section>
+    </>
   );
-};
-
-export default YearlyParallax;
+}
