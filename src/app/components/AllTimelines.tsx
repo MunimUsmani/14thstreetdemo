@@ -107,9 +107,9 @@ const timelineData = [
 ];
 
 export default function About() {
-  const sectionRefs = useRef([]);
-  const textRefs = useRef([]);
-  const imageRefs = useRef([]);
+  const sectionRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const textRefs = useRef<Array<HTMLParagraphElement | null>>([]);
+  const imageRefs = useRef<Array<HTMLImageElement | null>>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,26 +135,38 @@ export default function About() {
       const textElement = textRefs.current[index];
       const imageElement = imageRefs.current[index];
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        })
-        .fromTo(textElement, { y: "50%" }, { y: "-50%", ease: "none" }, 0)
-        .fromTo(imageElement, { y: "-20%" }, { y: "20%", ease: "none" }, 0);
+      if (section && textElement && imageElement) {
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          })
+          .fromTo(
+            textElement,
+            { y: "50%" }, // Initial position of the text
+            { y: "-50%", ease: "none" }, // Parallax effect scrolling upward
+            0
+          )
+          .fromTo(
+            imageElement,
+            { y: "-20%" }, // Initial position of the image
+            { y: "20%", ease: "none" }, // Parallax effect scrolling downward
+            0
+          );
 
-      // Pin effect
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 14.5%",
-        end: "100% 50%",
-        pin: index !== timelineData.length - 1,
-        pinSpacing: false,
-      });
+        // Pin effect
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 14.5%",
+          end: "100% 50%",
+          pin: index !== timelineData.length - 1, // Don't pin the last section
+          pinSpacing: false,
+        });
+      }
     });
 
     return () => {
@@ -163,7 +175,7 @@ export default function About() {
     };
   }, []);
 
-  const formatYear = (year) => {
+  const formatYear = (year: number): JSX.Element => {
     return <span>{year}</span>;
   };
 
@@ -176,9 +188,9 @@ export default function About() {
             ref={(el) => (sectionRefs.current[index] = el)}
             className={`container-fluid px-0 relative bg-[#fff8ee] ${
               index % 2 === 0 ? "text-left" : "text-right"
-            } h-screen`} // Added h-screen for full viewport height sections
+            } h-screen`} // Full viewport height for each section
           >
-            <div className="absolute left-1/3 top-[5%]">
+            <div className="absolute left-1/3 top-[5%] z-10">
               <h2 className="text-[15vw] font-bold">
                 <span className={index % 2 === 0 ? "text-white" : ""}>
                   {formatYear(yearContent.year1)}
@@ -189,13 +201,9 @@ export default function About() {
               </h2>
             </div>
             <div className="flex h-full">
-              {" "}
-              {/* Added h-full */}
               {index % 2 === 0 ? (
                 <>
                   <div className="w-1/2 px-0 overflow-hidden">
-                    {" "}
-                    {/* Added overflow-hidden */}
                     <img
                       ref={(el) => (imageRefs.current[index] = el)}
                       src={yearContent.image}
@@ -204,8 +212,6 @@ export default function About() {
                     />
                   </div>
                   <div className="w-1/2 flex items-center px-0 mx-0">
-                    {" "}
-                    {/* Changed to items-center */}
                     <p
                       ref={(el) => (textRefs.current[index] = el)}
                       className="font-bold px-5 text-2xl lg:text-xl mt-[4rem]"
@@ -217,8 +223,6 @@ export default function About() {
               ) : (
                 <>
                   <div className="w-1/2 flex items-center px-0 mx-0">
-                    {" "}
-                    {/* Changed to items-center */}
                     <p
                       ref={(el) => (textRefs.current[index] = el)}
                       className="font-bold px-5 text-2xl lg:text-xl mt-[4rem]"
@@ -227,8 +231,6 @@ export default function About() {
                     </p>
                   </div>
                   <div className="w-1/2 px-0 overflow-hidden">
-                    {" "}
-                    {/* Added overflow-hidden */}
                     <img
                       ref={(el) => (imageRefs.current[index] = el)}
                       src={yearContent.image}
